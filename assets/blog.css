@@ -1,0 +1,106 @@
+:root{
+  --bg:#FFFFFF;
+  --surface:#FFFFFF;
+  --surface-2:#FFFBE6;
+  --ink:#1A1A17;
+  --ink-soft:#57564C;
+  --ink-faint:#918F7E;
+  --yellow:#EEE229;
+  --yellow-deep:#C9BE12;
+  --yellow-pale:#FBF7CF;
+  --line:#ECE8D2;
+  --radius:2px;
+  --serif:'Zen Old Mincho', serif;
+  --sans:'Zen Kaku Gothic New', sans-serif;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme: dark){
+    --bg:#17160F;
+    --surface:#1E1D14;
+    --surface-2:#242212;
+    --ink:#F5F3E4;
+    --ink-soft:#C7C4AC;
+    --ink-faint:#7E7C68;
+    --yellow-pale:#2A2914;
+    --line:#33311E;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17160F;--surface:#1E1D14;--surface-2:#242212;
+  --ink:#F5F3E4;--ink-soft:#C7C4AC;--ink-faint:#7E7C68;
+  --yellow-pale:#2A2914;--line:#33311E;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  line-height:1.85;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0 0 .5em;letter-spacing:.02em;}
+
+header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+.headbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 28px;max-width:1080px;margin:0 auto;gap:20px;
+}
+.brand{font-family:var(--serif);font-weight:900;font-size:20px;color:var(--ink);text-decoration:none;}
+.nav-cta{
+  font-size:13px;font-weight:700;color:var(--ink);
+  background:var(--yellow);padding:11px 20px;border-radius:var(--radius);
+  text-decoration:none;white-space:nowrap;transition:background .2s ease;
+  border:1px solid var(--ink);
+}
+.nav-cta:hover{background:var(--yellow-deep);}
+
+.breadcrumb{font-size:12.5px;color:var(--ink-faint);padding:18px 0 0;}
+.breadcrumb a{text-decoration:none;color:var(--ink-soft);}
+.breadcrumb a:hover{text-decoration:underline;}
+
+/* ---------- Blog list ---------- */
+.blog-hero{padding:40px 0 8px;}
+.blog-hero p{color:var(--ink-soft);font-size:14.5px;max-width:56ch;}
+.post-list{padding:28px 0 70px;display:grid;gap:22px;}
+.post-card{
+  display:block;text-decoration:none;color:inherit;
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 28px;background:var(--surface);transition:border-color .2s ease, background .2s ease;
+}
+.post-card:hover{border-color:var(--ink);background:var(--surface-2);}
+.post-date{font-size:12px;color:var(--ink-faint);letter-spacing:.04em;}
+.post-card h2{font-size:19px;margin-top:8px;color:var(--ink);}
+.post-excerpt{margin-top:8px;font-size:14px;color:var(--ink-soft);}
+
+/* ---------- Blog post ---------- */
+.post{padding:28px 0 60px;max-width:720px;margin:0 auto;}
+.post-header{padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:32px;}
+.post-header .post-date{display:block;margin-bottom:10px;}
+.post-header h1{font-size:clamp(24px,3.6vw,34px);line-height:1.5;}
+.post-body p{margin:0 0 1.4em;font-size:15.5px;color:var(--ink-soft);}
+.post-body h2{font-size:19px;margin:1.6em 0 .6em;color:var(--ink);}
+
+.cta-band{background:var(--yellow-pale);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 0;margin-top:20px;}
+.cta-band h2{font-size:22px;}
+.cta-band p{color:var(--ink-soft);font-size:14.5px;margin:12px 0 0;}
+.cta-row{margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--ink);
+  padding:16px 28px;border-radius:var(--radius);text-decoration:none;
+  font-weight:700;font-size:14.5px;border:1px solid var(--ink);
+  transition:background .2s ease;
+}
+.btn-primary:hover{background:var(--yellow-deep);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;padding:16px 24px;border:1px solid var(--line);
+  border-radius:var(--radius);text-decoration:none;font-size:14.5px;color:var(--ink-soft);
+}
+
+footer{padding:32px 0;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--line);}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
